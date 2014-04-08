@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: slacker_news_development
+
+test:
+  adapter: postgresql
+  database: slacker_news_test

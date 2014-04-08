@@ -1,0 +1,12 @@
+<%= form_for(@article) do |f| %>
+  <div class="form-group">
+    <%= f.label "Article Name:" %>
+    <%= f.text_field :title %>
+    <%= f.label "URL:" %>
+    <%= f.text_field :url %>
+    <%= f.label "User:" %>
+    <%= f.text_field :author %>
+  </div>
+
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Slacker News <%= link_to "New", new_article_path(@article), :class => "btn btn-default" %></h1>
+<ul>
+  <% @articles.each do |article| %>
+    <li class="list"> <%= link_to "#{article.title}", article.url %> posted by <strong><%= "#{article.author}" %></strong>
+      <%= link_to "Edit", article_path(article), :class => "btn btn-danger" %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+
