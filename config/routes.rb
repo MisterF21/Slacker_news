@@ -1,4 +1,9 @@
 SlackerNews::Application.routes.draw do
-  resources :articles, :except => [:edit]
+  resources :articles do
+    resources :comments
+  end
+  resources :comments
+
   root :to => 'articles#index'
+
 end

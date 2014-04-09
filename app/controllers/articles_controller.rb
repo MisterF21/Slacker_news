@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   def index
     @articles = Article.all
   end
@@ -16,6 +17,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   def show
     @article = Article.find(params[:id])
   end
@@ -30,7 +35,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    show
+    @article = Article.find(params[:id])
     if @article.destroy
       redirect_to("/articles")
     else
@@ -38,11 +43,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def vote
+    @article = Article.find(params[:id])
+    @article.update_attributes("Vote", vote_id + 1)
+  end
+
   private
   def user_params
     params.require(:article).permit(:author, :title, :url)
   end
-
-
-
 end
